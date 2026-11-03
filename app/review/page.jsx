@@ -46,6 +46,10 @@ const items = [
     d: "The mark in the header is a stand-in. Send the full-size original logo file.",
   },
   {
+    t: "Turn on search engines at launch",
+    d: "The site currently tells Google not to index it. At launch, remove the noindex settings in next.config.mjs, app/robots.js and app/layout.jsx.",
+  },
+  {
     t: "Effective date",
     d: "The policy needs its launch date.",
   },

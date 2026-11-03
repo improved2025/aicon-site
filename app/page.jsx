@@ -46,6 +46,16 @@ export default function Home() {
                   Walk-in clinic
                 </Link>
               </div>
+              <div className="hero-status rise r3">
+                <div>
+                  <small>Walk-in clinic</small>
+                  <LiveStatus kind="clinic" />
+                </div>
+                <div>
+                  <small>Video visits</small>
+                  <LiveStatus kind="virtual" />
+                </div>
+              </div>
             </div>
             <div className="hero-art rise r2">
               <div className="chip chip-a">

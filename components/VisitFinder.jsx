@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { BookButton } from "@/components/ui";
 import { LiveStatus } from "@/components/live";
@@ -21,6 +21,15 @@ const NEEDS = [
 
 export default function VisitFinder() {
   const [id, setId] = useState("sick");
+  const resultRef = useRef(null);
+  const pick = (next) => {
+    setId(next);
+    if (window.matchMedia("(max-width: 1000px)").matches) {
+      requestAnimationFrame(() =>
+        resultRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" })
+      );
+    }
+  };
   const n = NEEDS.find((x) => x.id === id);
   const p = n.priceOf ? price(n.priceOf) : null;
 
@@ -34,7 +43,7 @@ export default function VisitFinder() {
             role="radio"
             aria-checked={x.id === id}
             className={`fchip ${x.id === id ? "active" : ""}`}
-            onClick={() => setId(x.id)}
+            onClick={() => pick(x.id)}
           >
             <span className={`fchip-dot ${x.mode}`} aria-hidden="true" />
             {x.label}
@@ -42,7 +51,7 @@ export default function VisitFinder() {
         ))}
       </div>
 
-      <div key={id} className={`finder-result ${n.mode === "video" ? "is-video" : "is-clinic"}`} aria-live="polite">
+      <div ref={resultRef} key={id} className={`finder-result ${n.mode === "video" ? "is-video" : "is-clinic"}`} aria-live="polite">
         <span className="mode-tag">{n.mode === "video" ? "Video visit from home" : "At the Houston clinic"}</span>
         <h3>{n.title}</h3>
         <p>{n.why}</p>

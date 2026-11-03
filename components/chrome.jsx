@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo, BookButton } from "@/components/ui";
 import { HeaderShell } from "@/components/live";
+import { MobileMenu } from "@/components/mobile";
 import { clinic } from "@/lib/site";
 
 const nav = [
@@ -23,18 +24,13 @@ export function Header() {
             ))}
           </nav>
           <BookButton>Book online</BookButton>
-          <details className="menu">
-            <summary>Menu</summary>
-            <nav aria-label="Mobile">
-              {nav.map((n) => (
-                <Link key={n.href} href={n.href}>
-                  {n.label}
-                </Link>
-              ))}
-              <Link href="/policies">Policies</Link>
-              <BookButton variant="forest" />
-            </nav>
-          </details>
+          <MobileMenu
+            links={[
+              { href: "/", label: "Home" },
+              ...nav,
+              { href: "/policies", label: "Policies" },
+            ]}
+          />
         </div>
       </div>
     </HeaderShell>

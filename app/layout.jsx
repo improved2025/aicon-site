@@ -1,10 +1,21 @@
 import "./globals.css";
 import { Header, Footer } from "@/components/chrome";
+import { MobileBar, PwaRegister } from "@/components/mobile";
 
 export const metadata = {
   title: { default: "Aicon Family Clinic | Houston walk-in and virtual care", template: "%s | Aicon Family Clinic" },
   description: "Walk-in family care in Houston, and self-pay video visits across eight states.",
   robots: { index: false, follow: false },
+  applicationName: "Aicon Clinic",
+  appleWebApp: { capable: true, title: "Aicon Clinic", statusBarStyle: "black-translucent" },
+  formatDetection: { telephone: true },
+};
+
+export const viewport = {
+  themeColor: "#0e2a20",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }) {
@@ -25,6 +36,8 @@ export default function RootLayout({ children }) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <MobileBar />
+        <PwaRegister />
       </body>
     </html>
   );

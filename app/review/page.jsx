@@ -6,8 +6,8 @@ const items = [
     d: "Is the provider enrolled in Medicare, and has she opted out? Until confirmed, the virtual page asks Medicare and Medicaid patients to call before booking.",
   },
   {
-    t: "Setmore Health account",
-    d: "Confirm the scheduling account was opened as Setmore Health with a signed BAA. The Book buttons stay inactive until we have that booking link.",
+    t: "Setmore booking form",
+    d: "State, Medicare/Medicaid and policy questions now live on the site's /book page. In Setmore, keep only Name, Phone, Email and Date of birth, and delete the other custom fields.",
   },
   {
     t: "Exact certification letters",

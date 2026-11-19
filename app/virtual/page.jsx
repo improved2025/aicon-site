@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import { BookButton, CallButton } from "@/components/ui";
 import StateCheck from "@/components/StateCheck";
 import { LiveStatus } from "@/components/live";
-import { BOOKING_URL, states, telehealthHours, visits } from "@/lib/site";
+import { states, telehealthHours, visits } from "@/lib/site";
 
 export const metadata = { title: "Virtual Clinic" };
 
@@ -120,7 +120,7 @@ export default function VirtualPage() {
               Book in <em>two minutes.</em>
             </h2>
             <div className="btns" style={{ marginTop: 40 }}>
-              {BOOKING_URL ? <BookButton variant="forest" /> : <CallButton variant="line-dark" />}
+              <BookButton variant="forest" />
             </div>
           </Reveal>
           <Reveal delay={120} style={{ display: "grid", gap: 24, alignContent: "end" }}>

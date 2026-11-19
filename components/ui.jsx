@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BOOKING_URL, clinic } from "@/lib/site";
+import { clinic } from "@/lib/site";
 
 export function Logo() {
   return (
@@ -20,12 +20,10 @@ const Arr = () => (
 );
 
 export function BookButton({ children = "Book a video visit", variant = "brass" }) {
-  const href = BOOKING_URL || "/virtual#book";
-  const ext = BOOKING_URL ? { target: "_blank", rel: "noopener noreferrer" } : {};
   return (
-    <a className={`btn btn-${variant}`} href={href} {...ext}>
+    <Link className={`btn btn-${variant}`} href="/book">
       {children} <Arr />
-    </a>
+    </Link>
   );
 }
 

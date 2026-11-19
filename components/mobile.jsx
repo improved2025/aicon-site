@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BOOKING_URL, clinic } from "@/lib/site";
+import { clinic } from "@/lib/site";
 
 /* Full-screen mobile menu that closes itself after navigation */
 export function MobileMenu({ links }) {
@@ -81,8 +81,9 @@ export function MobileMenu({ links }) {
 
 /* Thumb-reach action bar on phones */
 export function MobileBar() {
-  const href = BOOKING_URL || "/virtual#book";
-  const ext = BOOKING_URL ? { target: "_blank", rel: "noopener noreferrer" } : {};
+  const pathname = usePathname();
+  if (pathname === "/book") return null;
+
   return (
     <div className="mbar" role="region" aria-label="Quick actions">
       <a className="mbar-btn mbar-call" href={clinic.phoneHref} aria-label={`Call ${clinic.phone}`}>
@@ -100,9 +101,9 @@ export function MobileBar() {
         </svg>
         <span className="mbar-label">Directions</span>
       </a>
-      <a className="mbar-btn mbar-book" href={href} {...ext}>
+      <Link className="mbar-btn mbar-book" href="/book">
         Book video visit
-      </a>
+      </Link>
     </div>
   );
 }

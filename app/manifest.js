@@ -16,7 +16,7 @@ export default function manifest() {
       { src: "/icons/maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
     shortcuts: [
-      { name: "Book a video visit", url: "/virtual#book", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
+      { name: "Book a video visit", url: "/book", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
       { name: "Walk-in hours", url: "/clinic", icons: [{ src: "/icons/icon-192.png", sizes: "192x192" }] },
     ],
   };

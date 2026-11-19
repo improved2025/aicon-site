@@ -1,5 +1,5 @@
 import BookingGate from "@/components/BookingGate";
-import { telehealthHours } from "@/lib/site";
+import { VIDEO_ROOM, telehealthHours } from "@/lib/site";
 
 export const metadata = { title: "Book a video visit" };
 
@@ -34,6 +34,13 @@ export default function BookPage() {
               </tbody>
             </table>
             <p className="fine" style={{ marginTop: 16 }}>Central Time. Visits from $50, self-pay.</p>
+            <div className="room-box">
+              <small>Your visit room</small>
+              <a href={VIDEO_ROOM} target="_blank" rel="noopener noreferrer">
+                doxy.me/drkindness
+              </a>
+              <span>At your appointment time, open this link and check in with your name.</span>
+            </div>
             <p className="note" style={{ marginTop: 24 }}>
               <strong>Emergency?</strong> Call 911. For a mental health crisis, call or text 988.
             </p>

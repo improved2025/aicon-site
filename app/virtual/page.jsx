@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import { BookButton, CallButton } from "@/components/ui";
 import StateCheck from "@/components/StateCheck";
 import { LiveStatus } from "@/components/live";
-import { states, telehealthHours, visits } from "@/lib/site";
+import { VIDEO_ROOM, states, telehealthHours, visits } from "@/lib/site";
 
 export const metadata = { title: "Virtual Clinic" };
 
@@ -50,8 +50,14 @@ export default function VirtualPage() {
               <p>Pick a visit and a time.</p>
             </li>
             <li>
-              <strong>Get your link</strong>
-              <p>Secure video. No app needed.</p>
+              <strong>Join at your time</strong>
+              <p>
+                Open{" "}
+                <a href={VIDEO_ROOM} target="_blank" rel="noopener noreferrer" className="room-link">
+                  doxy.me/drkindness
+                </a>{" "}
+                and check in. No app needed.
+              </p>
             </li>
             <li>
               <strong>See your provider</strong>

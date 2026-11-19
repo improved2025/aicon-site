@@ -1473,3 +1473,9 @@ button, a { touch-action: manipulation; }
 .book-head h1 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); }
 .book-head { padding-bottom: clamp(36px, 4vw, 56px); }
 .book-body { padding-top: clamp(32px, 4vw, 56px); }
+
+.room-link { color: var(--forest-3); font-weight: 700; }
+.room-box { margin-top: 24px; background: var(--forest); color: var(--cream); border-radius: 18px; padding: 20px; display: grid; gap: 6px; }
+.room-box small { font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--brass-2); }
+.room-box a { color: var(--cream); font-family: var(--serif); font-weight: 700; font-size: 1.35rem; letter-spacing: -0.02em; text-decoration: none; word-break: break-all; }
+.room-box span { font-size: .88rem; color: rgba(244,239,230,.72); }

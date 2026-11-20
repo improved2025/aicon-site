@@ -108,13 +108,12 @@ export function MobileBar() {
   );
 }
 
-/* Registers the service worker so the site can be installed like an app */
+/* Removes any service worker left by an earlier version of the site */
 export function PwaRegister() {
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production") return;
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
-    }
+    if (!("serviceWorker" in navigator)) return;
+    navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister()));
+    if (window.caches) caches.keys().then((keys) => keys.forEach((k) => caches.delete(k)));
   }, []);
   return null;
 }
